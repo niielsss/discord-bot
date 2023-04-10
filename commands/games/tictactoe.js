@@ -60,6 +60,8 @@ module.exports = {
                 const game = new TicTacToe(interaction, opponent);
 
                 game.start();
+
+                collector.stop();
             } else if (i.customId === 'decline') {
                 await inviteMessage.delete();
 
