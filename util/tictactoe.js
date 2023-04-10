@@ -17,7 +17,7 @@ module.exports = class TicTacToe {
             .setDescription('Click the buttons below to make your move.')
             .addFields(
                 { name: 'Player 1', value: `${ this.interaction.user }`, inline: true },
-                { name: 'Player 2', value: `opponent`, inline: true },
+                { name: 'Player 2', value: `${ this.opponent }`, inline: true },
                 { name: 'Turn', value: `${ this.turn }`, inline: true },
             )
             .setColor('#0099ff')

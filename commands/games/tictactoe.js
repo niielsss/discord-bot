@@ -40,7 +40,7 @@ module.exports = {
             );
 
         const inviteMessage = await interaction.reply({
-            //content: `<@${opponent.id}>`,
+            content: `<@${opponent.id}>`,
             embeds: [invite],
             components: [buttons]
         });
@@ -55,7 +55,7 @@ module.exports = {
             if (i.customId === 'accept') {
                 await inviteMessage.delete();
 
-                await interaction.channel.send(`${interaction.user} vs opponent!`);
+                await interaction.channel.send(`${interaction.user} vs ${opponent}!`);
 
                 const game = new TicTacToe(interaction, opponent);
 
