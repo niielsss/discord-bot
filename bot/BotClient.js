@@ -48,10 +48,16 @@ module.exports = class BotClient extends Client {
     }
 
     async connect(mongo_uri) {
-        await mongoose.connect(mongo_uri, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
-        console.log('Connected to MongoDB');
+        try {
+            await mongoose.connect(mongo_uri, {
+                useNewUrlParser: true,
+                useUnifiedTopology: true,
+            });
+            console.log('Connected to MongoDB');
+        } catch (err) {
+            console.error(err);
+
+            process.exit(1);
+        }
     }
 }
