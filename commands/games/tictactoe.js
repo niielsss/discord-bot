@@ -40,7 +40,7 @@ module.exports = {
             );
 
         const inviteMessage = await interaction.reply({
-            content: `<@${opponent.id}>`,
+            //content: `<@${opponent.id}>`,
             embeds: [invite],
             components: [buttons]
         });

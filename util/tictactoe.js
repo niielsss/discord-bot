@@ -104,7 +104,7 @@ module.exports = class TicTacToe {
                 .setColor('#0099ff')
                 .setTimestamp();
 
-            const buttons = await this.createButtons();
+            const buttons = await this.createButtons(true);
 
             console.log(this.board);
 
@@ -159,21 +159,24 @@ module.exports = class TicTacToe {
         }
     }
 
-    async createButtons() {
+    async createButtons(disabled = false) {
         const buttons = new ActionRowBuilder()
             .addComponents(
                 new ButtonBuilder()
                     .setEmoji(this.board.charAt(0) === '_' ? '⬜' : this.board.charAt(0) === 'X' ? '❌' : '⭕')
                     .setStyle('Secondary')
-                    .setCustomId('0'),
+                    .setCustomId('0')
+                    .setDisabled(disabled),
                 new ButtonBuilder()
                     .setEmoji(this.board.charAt(1) === '_' ? '⬜' : this.board.charAt(1) === 'X' ? '❌' : '⭕')
                     .setStyle('Secondary')
-                    .setCustomId('1'),
+                    .setCustomId('1')
+                    .setDisabled(disabled),
                 new ButtonBuilder()
                     .setEmoji(this.board.charAt(2) === '_' ? '⬜' : this.board.charAt(2) === 'X' ? '❌' : '⭕')
                     .setStyle('Secondary')
                     .setCustomId('2')
+                    .setDisabled(disabled)
             )
 
         const buttons2 = new ActionRowBuilder()
@@ -181,15 +184,18 @@ module.exports = class TicTacToe {
                 new ButtonBuilder()
                     .setEmoji(this.board.charAt(3) === '_' ? '⬜' : this.board.charAt(3) === 'X' ? '❌' : '⭕')
                     .setStyle('Secondary')
-                    .setCustomId('3'),
+                    .setCustomId('3')
+                    .setDisabled(disabled),
                 new ButtonBuilder()
                     .setEmoji(this.board.charAt(4) === '_' ? '⬜' : this.board.charAt(4) === 'X' ? '❌' : '⭕')
                     .setStyle('Secondary')
-                    .setCustomId('4'),
+                    .setCustomId('4')
+                    .setDisabled(disabled),
                 new ButtonBuilder()
                     .setEmoji(this.board.charAt(5) === '_' ? '⬜' : this.board.charAt(5) === 'X' ? '❌' : '⭕')
                     .setStyle('Secondary')
                     .setCustomId('5')
+                    .setDisabled(disabled)
             )
 
         const buttons3 = new ActionRowBuilder()
@@ -197,15 +203,18 @@ module.exports = class TicTacToe {
                 new ButtonBuilder()
                     .setEmoji(this.board.charAt(6) === '_' ? '⬜' : this.board.charAt(6) === 'X' ? '❌' : '⭕')
                     .setStyle('Secondary')
-                    .setCustomId('6'),
+                    .setCustomId('6')
+                    .setDisabled(disabled),
                 new ButtonBuilder()
                     .setEmoji(this.board.charAt(7) === '_' ? '⬜' : this.board.charAt(7) === 'X' ? '❌' : '⭕')
                     .setStyle('Secondary')
-                    .setCustomId('7'),
+                    .setCustomId('7')
+                    .setDisabled(disabled),
                 new ButtonBuilder()
                     .setEmoji(this.board.charAt(8) === '_' ? '⬜' : this.board.charAt(8) === 'X' ? '❌' : '⭕')
                     .setStyle('Secondary')
                     .setCustomId('8')
+                    .setDisabled(disabled)
             )
 
         return [buttons, buttons2, buttons3];
