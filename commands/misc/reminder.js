@@ -10,7 +10,6 @@ module.exports = {
     async execute(interaction) {
         const time = interaction.options.getString('time');
         const message = interaction.options.getString('message');
-        // Check if isNaN or negative
         if (isNaN(ms(time)) || ms(time) < 0) {
             return interaction.reply({ content:'Please enter a valid time!', ephemeral: true });
         }
